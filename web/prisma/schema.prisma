@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Product {
+  id                  String   @id @default(cuid())
+  name                String
+  url                 String   @unique
+  imageUrl            String?
+  retailer            String
+  price               Float?
+  category            String?
+  naturalFiberPct     Float
+  materialComposition String   // stored as JSON string, e.g. [{"fiber":"cotton","pct":60}]
+  lastScraped         DateTime @default(now())
+  isActive            Boolean  @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model ScrapeLog {
+  id        String   @id @default(cuid())
+  retailer  String
+  status    String   // "success" | "error"
+  count     Int      @default(0)
+  message   String?
+  createdAt DateTime @default(now())
+}

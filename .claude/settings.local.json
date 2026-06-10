@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const { PrismaClient } = require\\('./src/generated/prisma/client.ts'\\); const prisma = new PrismaClient\\(\\); prisma.product.findMany\\(\\).then\\(r => console.log\\(r\\)\\).catch\\(e => console.error\\(e.message\\)\\);\")",
+      "Bash(npm install *)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(node -e \"const m = require\\('c:/Users/kidri/OneDrive/Documents/Briefcase/Berkeley MDevEng/Clothing_Website/web/node_modules/@prisma/adapter-better-sqlite3/dist/index.js'\\); console.log\\(Object.keys\\(m\\)\\);\")",
+      "Bash(node -e ' *)"
+    ]
+  }
+}
